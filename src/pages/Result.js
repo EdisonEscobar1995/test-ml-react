@@ -1,23 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Row, Col } from "antd";
-import { useParams } from "react-router-dom";
-import { Loading, ProductDetail } from '../components';
+import axios from "axios";
+import { Loading, Result as ResultComponent } from "../components";
 
-const ItemDetail = () => {
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
+const Result = () => {
   const [data, setData] = useState({});
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  
-  let { id } = useParams();
+  const query = useQuery().get("search");
 
+  debugger;
   useEffect(() => {
     setLoading(true);
     setData({});
-    setError(false);
     axios
-      .get("/api/items/" + id)
+      .get("/api/items?q=" + query)
       .then((response) => {
+        // console.log(response.data);
         if (response.data.status !== 404) {
           setData(response.data);
         } else {
@@ -30,12 +34,12 @@ const ItemDetail = () => {
         setError(true);
         setLoading(false);
       });
-  }, [id]);
+  }, [query]);
 
   return (
     <>
       <Loading loading={loading}>
-        {Object.keys(data).length > 0 && <ProductDetail data={data} />}
+        {Object.keys(data).length > 0 && <ResultComponent data={data} />}
         {error && (
           <Row
             type="flex"
@@ -44,7 +48,7 @@ const ItemDetail = () => {
             style={{ minHeight: 'calc(100vh - 200px)' }}>
             <Col>
               <strong style={{ fontSize: '1.5rem' }}>
-                {`Item '${id}' no encontrado`}
+                {`Búsqueda no encontrada.`}
               </strong>
             </Col>
           </Row>
@@ -52,6 +56,6 @@ const ItemDetail = () => {
       </Loading>
     </>
   );
-}
+};
 
-export default ItemDetail;
+export default Result;

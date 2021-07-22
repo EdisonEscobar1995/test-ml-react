@@ -2,13 +2,13 @@
 
 @primary-color: #2779ff;
 @layout-header-background: #ffffff;
-@layout-sider-background: #ffffff;
-@menu-dark-color: #ffffff;
-@menu-dark-item-active-bg: lighten(@primary-color, 5%);
+@size-layout-container: 78%;
 @table-border-radius-base: 1rem;
 @form-item-margin-bottom: 20px;
 
 @import "layout.less";
+@import "result.less";
+@import "detail.less";
 
 .custom-full-width {
   width: 100%;
@@ -20,4 +20,9 @@
 
 .custom-align-middle {
   vertical-align: middle;
+}
+
+.custom-loading-spin {
+  position: fixed;
+  top: 280px;
 }

@@ -19,6 +19,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
+    "start-server": "nodemon --exec node ./backend/server.js",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject"
@@ -43,10 +44,15 @@
   },
   "devDependencies": {
     "@ljharb/eslint-config": "^14.1.0",
+    "axios": "^0.21.1",
     "babel-plugin-import": "^1.7.0",
+    "currency-formatter": "^1.5.8",
     "customize-cra": "^0.8.0",
+    "express": "^4.17.1",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "nodemon": "^2.0.12",
     "react-app-rewired": "^2.1.1"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

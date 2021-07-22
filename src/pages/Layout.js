@@ -1,16 +1,15 @@
-import React, { Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'antd';
-import { Route, Switch, withRouter } from 'react-router-dom';
 import { Layout, Spin } from 'antd';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import routes from '../config/routes';
 import NotFound404 from './404';
-import { Header } from 'antd/lib/layout/layout';
-import logoML from '../img/logo_ML_2x.png';
+import { HeaderLayout } from '../components';
 
-const { Footer, Content } = Layout;
 
-const Routes = () => {
+const { Content } = Layout;
+
+const Routes = (querySearch) => {
   return (
     <Suspense fallback={<Spin size="large" className="custom-layout-spin" />}>
       <Switch>
@@ -28,21 +27,16 @@ const Routes = () => {
   );
 };
 
-const LayoutPage = props => {
-  const {
-    location: { pathname },
-  } = props;
-
+const LayoutPage = () => {
+  const [querySearch, setQuerySearch] = useState('');
   return (
     <Layout className="custom-layout">
-      <Header className="custom-header">
-        <div className="custom-container-header">
-          <img className="img-ml" src={logoML} alt="logo_ML" />
-          <Input size="small" placeholder="Nunca dejes de buscar" style={{ height: '30px' }} />
-        </div>
-      </Header>
+      <HeaderLayout
+        querySearch={querySearch}
+        setQuerySearch={setQuerySearch}
+      />
       <Content className="custom-layout-content">
-        <Routes />
+        <Routes querySearch={querySearch} />
       </Content>
     </Layout>
   );

@@ -1,0 +1,51 @@
+@import (once) "../../node_modules/antd/dist/antd.less";
+
+.ant-breadcrumb {
+  margin: 16px 0;
+}
+
+.content-results {
+  background-color: #FFF;
+  padding: 0 16px;
+
+  .item-result {
+    display: flex;
+    align-items: flex-start;
+    background-color: #FFF;
+    padding: 16px 0;
+    border-bottom: 1px solid #eee;
+
+    .img-item {
+      border-radius: 4px;
+      width: 180px;
+      height: 180px;
+      margin-right: 16px;
+    }
+
+    .item-detail {
+      display: flex;
+      flex-direction: column;
+      max-width: 60%;
+      min-width: 60%;
+      padding-top: 16px;
+      .span-price {
+        font-size: 24px;
+        img {
+          margin: -4px 0 0 5px;
+        }
+      }
+      .span-title {
+        font-size: 18px;
+        margin-top: 30px;
+        max-width: 72%;
+      }
+    }
+
+    .item-city {
+      display: flex;
+      justify-content: flex-end;
+      padding: 25px 10% 0 0;
+      width: 40%;
+    }
+  }
+}
