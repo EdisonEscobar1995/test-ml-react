@@ -8,7 +8,7 @@
 #### Clone project
 
 ```
-git clone '
+git clone https://github.com/EdisonEscobar1995/test-ml-react.git
 ```
 
 #### Install dependencies:
