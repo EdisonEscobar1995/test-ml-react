@@ -34,20 +34,8 @@ const getCategoryMostResults = async (categories) => {
       most_results = element;
     }
   });
-  console.log('most_results = ', most_results);
 
   if (most_results.results > 0) {
-    /* try {    
-      const responseCategory = await axios.get(HOST + 'categories/' + most_results.id);
-      if (responseCategory.data.path_from_root.length > 0) {
-        const paths = responseCategory.data.path_from_root;
-        paths.forEach(path =>{
-          path_from_root.push(path.name);
-        })
-      }
-    } catch (error) {
-      console.log('Error = ', error);
-    } */
     path_from_root = await getPathCategory(most_results.id);
   }
 
@@ -56,15 +44,14 @@ const getCategoryMostResults = async (categories) => {
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-// create a GET route
+// create a GET routes
+
 app.get('/api/items', (req, res) => {
-  var queryParam = req.query;
-  var query = req.query['q'];
-  console.log(queryParam);
-  console.log(query);
+  const queryParam = req.query;
+  const query = queryParam['q'];
+  
   axios.get(HOST + 'sites/MLA/search?q=' + query)
     .then(async (response) => {
-      console.log("query ejecutado");
       res.send(await getStructureSearch(response.data, getCategoryMostResults));
     })
     .catch((error) => {

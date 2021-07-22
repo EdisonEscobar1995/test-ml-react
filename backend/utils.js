@@ -26,6 +26,7 @@ module.exports = {
             picture: results[i].thumbnail,
             condition: results[i].condition,
             free_shipping: results[i].shipping.free_shipping,
+            seller_state: results[i].seller_address.state.name
           })
         }
       }

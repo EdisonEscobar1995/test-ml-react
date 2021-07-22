@@ -30,7 +30,7 @@ const Result = ({ data }) => {
                 <span className="span-title">{item.title}</span>
               </div>
               <div className="item-city">
-                <span>Mendoza</span>
+                <span>{item.seller_state}</span>
               </div>
             </div>
           ))
