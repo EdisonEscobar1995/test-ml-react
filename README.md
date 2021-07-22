@@ -36,3 +36,47 @@ or
 ```
 npm start-server
 ```
+#### Routes available
+
+* /
+* "/items?search=query"
+* "/items/:id"
+
+#### Structure folders
+```
+src
+|-- components
+|   |-- Breadcrumb.js
+|   |-- HeaderLayout.js
+|   |-- index.js
+|   |-- Loading.js
+|   |-- ProductDetail.js
+|   |-- Result.js
+|-- config
+|   |-- routes.js
+|-- img
+|   |-- ic_Search_2x.png
+|   |-- ic_shipping.png
+|   |-- logo_ML_2x.png
+|   |-- logo_ML.png
+|-- pages
+|   |-- 404.js
+|   |-- Home.js
+|   |-- ItemDetail.js
+|   |-- Layout.js
+|   |-- Result.js
+|-- index.js
+|-- services
+|   |-- auth.js
+|   `-- instance.js
+|-- styles
+|   |-- auth.less
+|   |-- title.less
+|   |-- index.less
+|   |-- table.less
+|   `-- layout.less
+
+backend
+|-- server.js
+|-- utils.js
+```
