@@ -66,15 +66,11 @@ src
 |   |-- Layout.js
 |   |-- Result.js
 |-- index.js
-|-- services
-|   |-- auth.js
-|   `-- instance.js
 |-- styles
-|   |-- auth.less
-|   |-- title.less
+|   |-- detail.less
 |   |-- index.less
-|   |-- table.less
-|   `-- layout.less
+|   |-- layout.less
+|   |-- result.less
 
 backend
 |-- server.js
